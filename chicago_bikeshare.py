@@ -60,6 +60,7 @@ def column_to_list(data, index):
     for row in range(0, len(data), 1):
         column_list.append(data[row][index])
     return column_list
+	#try again
 
 
 # Let's check with the genders if it's working (only the first 20)

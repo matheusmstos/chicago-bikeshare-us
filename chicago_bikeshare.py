@@ -30,7 +30,7 @@ input("Press Enter to continue...")
 # TODO: Print the first 20 rows using a loop to identify the data.
 print("\n\nTASK 1: Printing the first 20 samples")
 
-for row in range(0, 21,1):
+for row in range(0, 21, 1):
     print(data_list[row])
 
 # Let's change the data_list to remove the header from it.
@@ -60,8 +60,6 @@ def column_to_list(data, index):
     for row in range(0, len(data), 1):
         column_list.append(data[row][index])
     return column_list
-	#try again
-
 
 # Let's check with the genders if it's working (only the first 20)
 print("\nTASK 3: Printing the list of genders of the first 20 samples")
@@ -80,6 +78,12 @@ input("Press Enter to continue...")
 male = 0
 female = 0
 
+for x in range(len(data_list)):
+    if (data_list[x][-2] == "Male"):
+        male+=1
+    elif(data_list[x][-2] == "Female"):
+        female+=1
+
 
 # Checking the result
 print("\nTASK 4: Printing how many males and females we found")
@@ -97,6 +101,12 @@ input("Press Enter to continue...")
 def count_gender(data_list):
     male = 0
     female = 0
+
+    for x in range(len(data_list)):
+        if (data_list[x][-2] == "Male"):
+            male+=1
+        elif(data_list[x][-2] == "Female"):
+            female+=1
     return [male, female]
 
 
@@ -116,6 +126,14 @@ input("Press Enter to continue...")
 # We expect to see "Male", "Female" or "Equal" as answer.
 def most_popular_gender(data_list):
     answer = ""
+    gender_list = count_gender(data_list)
+
+    if(gender_list[0] > gender_list[1]):
+        answer = "Male"
+    elif(gender_list[0] < gender_list[1]):
+        answer = "Female"
+    else:
+        answer = "Equal"
     return answer
 
 
@@ -198,15 +216,15 @@ input("Press Enter to continue...")
 # TASK 11
 # Go back and make sure you documented your functions. Explain the input, output and what it do. Example:
 # def new_function(param1: int, param2: str) -> list:
-      """
-      Example function with annotations.
-      Args:
-          param1: The first parameter.
-          param2: The second parameter.
-      Returns:
-          List of X values
+"""
+Example function with annotations.
+Args:
+  param1: The first parameter.
+  param2: The second parameter.
+Returns:
+  List of X values
 
-      """
+"""
 
 input("Press Enter to continue...")
 # TASK 12 - Challenge! (Optional)

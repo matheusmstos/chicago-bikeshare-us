@@ -209,7 +209,7 @@ def count_user_type(data_list):
             subscriber += 1
     return [customer, subscriber]
 
-print(count_user_type(data_list))
+print("Result of count_user_type: \n {}".format(count_user_type(data_list)))
 
 print("\nTASK 7: Check the chart!")
 types = ["Customer", "Subscriber"]
@@ -365,11 +365,25 @@ input("Press Enter to continue...")
 # TODO: Create a function to count user types without hardcoding the types
 # so we can use this function with a different kind of data.
 print("Will you face it?")
-answer = "no"
+answer = "yes"
 
+"""
+Function that counts user types without hardcoding the types.
+Args:
+  colomn_list: A list of features.
+Returns:
+  List of the types encoutered in the list and another list
+  with how many are them.
+"""
 def count_items(column_list):
     item_types = []
     count_items = []
+    for item in column_list:
+        if item not in item_types:
+            item_types.append(item)
+            count_items.append(1) #count for the first time
+        else:
+            count_items[item_types.index(item)] += 1
     return item_types, count_items
 
 

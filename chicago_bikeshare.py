@@ -160,7 +160,32 @@ plt.show(block=True)
 input("Press Enter to continue...")
 # TASK 7
 # TODO: Plot a similar graph for user_types. Make sure the legend is correct.
+user_type_list = column_to_list(data_list, -3)
+#print(user_type_list[:20])
+
+def count_user_type(data_list):
+    customer = 0
+    subscriber = 0
+
+    for x in range(len(data_list)):
+        if (data_list[x][-3] == "Customer"):
+            customer+=1
+        elif(data_list[x][-3] == "Subscriber"):
+            subscriber+=1
+    return [customer, subscriber]
+
+print(count_user_type(data_list))
+
 print("\nTASK 7: Check the chart!")
+types = ["Customer", "Subscriber"]
+quantity = count_user_type(data_list)
+y_pos = list(range(len(types)))
+plt.bar(y_pos, quantity)
+plt.ylabel('Quantity')
+plt.xlabel('User Type')
+plt.xticks(y_pos, types)
+plt.title('Quantity by User Type')
+plt.show(block=True)
 
 
 input("Press Enter to continue...")
@@ -169,7 +194,8 @@ input("Press Enter to continue...")
 male, female = count_gender(data_list)
 print("\nTASK 8: Why the following condition is False?")
 print("male + female == len(data_list):", male + female == len(data_list))
-answer = "Type your answer here."
+print("Male + Female = {} and len(data_list) = {}".format((male+female), len(data_list)))
+answer = "Not all genders are filled."
 print("Answer:", answer)
 
 # ------------ DO NOT CHANGE ANY CODE HERE ------------

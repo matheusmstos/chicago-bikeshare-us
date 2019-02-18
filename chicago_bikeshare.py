@@ -54,6 +54,15 @@ for row in range(21):
 input("Press Enter to continue...")
 # TASK 3
 # TODO: Create a function to add the columns(features) of a list in another list in the same order
+
+"""
+This function takes a column(feature) of a list and turns it to a line.
+Args:
+  data: Receives a list.
+  index: The position of the desired column.
+Returns:
+  A list of a single feature.
+"""
 def column_to_list(data, index):
     column_list = []
     # Tip: You can use a for to iterate over the samples, get the feature by index and append into a list
@@ -98,6 +107,15 @@ input("Press Enter to continue...")
 # TASK 5
 # TODO: Create a function to count the genders. Return a list
 # Should return a list with [count_male, counf_female] (e.g., [10, 15] means 10 Males, 15 Females)
+
+"""
+This function counts the amount of "Gender" of a list.
+In our case, we have "Female" and "Male" as genders.
+Args:
+  data_list: Receives a list containing strs "Female" and "Male".
+Returns:
+  A list containing the amount of each gender.
+"""
 def count_gender(data_list):
     male = 0
     female = 0
@@ -124,6 +142,15 @@ input("Press Enter to continue...")
 # TASK 6
 # TODO: Create a function to get the most popular gender and print the gender as string.
 # We expect to see "Male", "Female" or "Equal" as answer.
+
+"""
+This function counts the amount of "Gender" of a list.
+In our case, we have "Female" and "Male" as genders.
+Args:
+  data_list: Receives a list containing strs "Female" and "Male".
+Returns:
+  A str containing the gender with highest number.
+"""
 def most_popular_gender(data_list):
     answer = ""
     gender_list = count_gender(data_list)
@@ -161,7 +188,15 @@ input("Press Enter to continue...")
 # TASK 7
 # TODO: Plot a similar graph for user_types. Make sure the legend is correct.
 user_type_list = column_to_list(data_list, -3)
-#print(user_type_list[:20])
+
+"""
+This function counts the amount of "User Type" of a list.
+In our case, we have "Customer" and "Subscriber" as user types.
+Args:
+  data_list: Receives a list containing strs "Customer" and "Subscriber".
+Returns:
+  A list with the amount of "Customer" and "Subscriber".
+"""
 
 def count_user_type(data_list):
     customer = 0
@@ -215,6 +250,13 @@ max_trip = 0.
 mean_trip = 0.
 median_trip = 0.
 
+"""
+This function calculates the minimum value of a list.
+Args:
+  data_list: Receives any list.
+Returns:
+  Min value of the list.
+"""
 def min_list(data_list):
     min_value = 0
     for x in data_list:
@@ -224,6 +266,13 @@ def min_list(data_list):
             min_value = x
     return min_value
 
+"""
+This function calculates the maximum value of a list.
+Args:
+  data_list: Receives any list.
+Returns:
+  Max value of the list.
+"""
 def max_list(data_list):
     max_value = 0
     for x in data_list:
@@ -231,6 +280,13 @@ def max_list(data_list):
             max_value = x
     return max_value
 
+"""
+This function calculates the mean value of a list.
+Args:
+  data_list: Receives any list.
+Returns:
+  Mean value of the list.
+"""
 def mean_list(data_list):
     sum_list = 0
     for num in data_list:
@@ -238,8 +294,15 @@ def mean_list(data_list):
     mean_value = round(sum_list/len(data_list))
     return mean_value
 
+"""
+This function calculates the median value of a list.
+Remembering that the list needs to be sorted and of integers.
+Args:
+  data_list: Receives any list.
+Returns:
+  Median value of the list.
+"""
 def median_list(data_list):
-    #the list needs to be sorted
     n = len(data_list)
     if(n%2 == 1): #odd size = even positions, len(n) = 5 -> [0..4]
         median_value = sorted(data_list)[n//2]

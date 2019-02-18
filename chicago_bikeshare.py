@@ -168,10 +168,10 @@ def count_user_type(data_list):
     subscriber = 0
 
     for x in range(len(data_list)):
-        if (data_list[x][-3] == "Customer"):
-            customer+=1
+        if(data_list[x][-3] == "Customer"):
+            customer += 1
         elif(data_list[x][-3] == "Subscriber"):
-            subscriber+=1
+            subscriber += 1
     return [customer, subscriber]
 
 print(count_user_type(data_list))
@@ -208,11 +208,52 @@ input("Press Enter to continue...")
 # TODO: Find the Minimum, Maximum, Mean and Median trip duration.
 # You should not use ready functions to do that, like max() or min().
 trip_duration_list = column_to_list(data_list, 2)
+int_trip_duration_list = [int(x) for x in trip_duration_list]
+
 min_trip = 0.
 max_trip = 0.
 mean_trip = 0.
 median_trip = 0.
 
+def min_list(data_list):
+    min_value = 0
+    for x in data_list:
+        if(min_value == 0):
+            min_value = x
+        elif(x < min_value):
+            min_value = x
+    return min_value
+
+def max_list(data_list):
+    max_value = 0
+    for x in data_list:
+        if(x > max_value):
+            max_value = x
+    return max_value
+
+def mean_list(data_list):
+    sum_list = 0
+    for num in data_list:
+        sum_list += num
+    mean_value = round(sum_list/len(data_list))
+    return mean_value
+
+def median_list(data_list):
+    #the list needs to be sorted
+    n = len(data_list)
+    if(n%2 == 1): #odd size = even positions, len(n) = 5 -> [0..4]
+        median_value = sorted(data_list)[n//2]
+        #print("Length of the list: {} Median's position: {}".format(n, n//2))
+    else:
+        median_trip = (sorted(trip_duration_list)[n//2 -1] +
+        sorted(trip_duration_list)[n//2])/2.0
+        #print("Length of the list = {} Median's position = {} & {}".format(n, n//2 -1,n//2))
+    return median_value
+
+min_trip = min_list(int_trip_duration_list)
+max_trip = max_list(int_trip_duration_list)
+mean_trip = mean_list(int_trip_duration_list)
+median_trip = median_list(int_trip_duration_list)
 
 print("\nTASK 9: Printing the min, max, mean and median")
 print("Min: ", min_trip, "Max: ", max_trip, "Mean: ", mean_trip, "Median: ", median_trip)
@@ -228,7 +269,11 @@ input("Press Enter to continue...")
 # TASK 10
 # Gender is easy because usually only have a few options. How about start_stations? How many options does it have?
 # TODO: Check types how many start_stations do we have using set()
+#Remember: sets has no duplicates and it's unordered, wich means that there's no position[n]
 user_types = set()
+
+for x in range(len(data_list)):
+    user_types.add(data_list[x][3])
 
 print("\nTASK 10: Printing start stations:")
 print(len(user_types))

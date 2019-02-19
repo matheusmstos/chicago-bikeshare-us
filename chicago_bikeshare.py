@@ -55,17 +55,19 @@ input("Press Enter to continue...")
 # TASK 3
 # TODO: Create a function to add the columns(features) of a list in another list in the same order
 
-"""
-This function takes a column(feature) of a list and turns it to a line.
-Args:
-  data: Receives a list.
-  index: The position of the desired column.
-Returns:
-  A list of a single feature.
-"""
+
 def column_to_list(data, index):
+    """
+    This function takes a column(feature) of a list and turns it to a line.
+    Args:
+      data: Receives a list.
+      index: The position of the desired column.
+    Returns:
+      A list of a single feature.
+    """
     column_list = []
-    # Tip: You can use a for to iterate over the samples, get the feature by index and append into a list
+    # Tip: You can use a for to iterate over the samples,
+    # get the feature by index and append into a list
     for row in range(0, len(data), 1):
         column_list.append(data[row][index])
     return column_list
@@ -87,11 +89,11 @@ input("Press Enter to continue...")
 male = 0
 female = 0
 
-for x in range(len(data_list)):
-    if (data_list[x][-2] == "Male"):
-        male+=1
-    elif(data_list[x][-2] == "Female"):
-        female+=1
+for i, item in enumerate(data_list):
+    if data_list[i][-2] == "Male":
+        male += 1
+    elif data_list[i][-2] == "Female":
+        female += 1
 
 
 # Checking the result
@@ -108,23 +110,25 @@ input("Press Enter to continue...")
 # TODO: Create a function to count the genders. Return a list
 # Should return a list with [count_male, counf_female] (e.g., [10, 15] means 10 Males, 15 Females)
 
-"""
-This function counts the amount of "Gender" of a list.
-In our case, we have "Female" and "Male" as genders.
-Args:
-  data_list: Receives a list containing strs "Female" and "Male".
-Returns:
-  A list containing the amount of each gender.
-"""
+
 def count_gender(data_list):
+    """
+    This function counts the amount of "Gender" of a list.
+    In our case, we have "Female" and "Male" as genders.
+    Args:
+      data_list: Receives a list containing strs "Female" and "Male".
+    Returns:
+      A list containing the amount of each gender.
+    """
+
     male = 0
     female = 0
 
-    for x in range(len(data_list)):
-        if (data_list[x][-2] == "Male"):
-            male+=1
-        elif(data_list[x][-2] == "Female"):
-            female+=1
+    for i, item in enumerate(data_list):
+        if data_list[i][-2] == "Male":
+            male += 1
+        elif data_list[i][-2] == "Female":
+            female += 1
     return [male, female]
 
 
@@ -143,21 +147,23 @@ input("Press Enter to continue...")
 # TODO: Create a function to get the most popular gender and print the gender as string.
 # We expect to see "Male", "Female" or "Equal" as answer.
 
-"""
-This function counts the amount of "Gender" of a list.
-In our case, we have "Female" and "Male" as genders.
-Args:
-  data_list: Receives a list containing strs "Female" and "Male".
-Returns:
-  A str containing the gender with highest number.
-"""
+
 def most_popular_gender(data_list):
+    """
+    This function counts the amount of "Gender" of a list.
+    In our case, we have "Female" and "Male" as genders.
+    Args:
+      data_list: Receives a list containing strs "Female" and "Male".
+    Returns:
+      A str containing the gender with highest number.
+    """
+
     answer = ""
     gender_list = count_gender(data_list)
 
-    if(gender_list[0] > gender_list[1]):
+    if gender_list[0] > gender_list[1]:
         answer = "Male"
-    elif(gender_list[0] < gender_list[1]):
+    elif gender_list[0] < gender_list[1]:
         answer = "Female"
     else:
         answer = "Equal"
@@ -189,25 +195,27 @@ input("Press Enter to continue...")
 # TODO: Plot a similar graph for user_types. Make sure the legend is correct.
 user_type_list = column_to_list(data_list, -3)
 
-"""
-This function counts the amount of "User Type" of a list.
-In our case, we have "Customer" and "Subscriber" as user types.
-Args:
-  data_list: Receives a list containing strs "Customer" and "Subscriber".
-Returns:
-  A list with the amount of "Customer" and "Subscriber".
-"""
+
 
 def count_user_type(data_list):
+    """
+    This function counts the amount of "User Type" of a list.
+    In our case, we have "Customer" and "Subscriber" as user types.
+    Args:
+      data_list: Receives a list containing strs "Customer" and "Subscriber".
+    Returns:
+      A list with the amount of "Customer" and "Subscriber".
+    """
+
     customer = 0
     subscriber = 0
 
-    for x in range(len(data_list)):
-        if(data_list[x][-3] == "Customer"):
+    for i in enumerate(data_list):
+        if data_list[i][-3] == "Customer":
             customer += 1
-        elif(data_list[x][-3] == "Subscriber"):
+        elif data_list[i][-3] == "Subscriber":
             subscriber += 1
-    return [customer, subscriber]
+        return [customer, subscriber]
 
 print("Result of count_user_type: \n {}".format(count_user_type(data_list)))
 
@@ -250,66 +258,72 @@ max_trip = 0.
 mean_trip = 0.
 median_trip = 0.
 
-"""
-This function calculates the minimum value of a list.
-Args:
-  data_list: Receives any list.
-Returns:
-  Min value of the list.
-"""
 def min_list(data_list):
+    """
+    This function calculates the minimum value of a list.
+    Args:
+      data_list: Receives any list.
+    Returns:
+      Min value of the list.
+    """
+
     min_value = 0
-    for x in data_list:
-        if(min_value == 0):
-            min_value = x
-        elif(x < min_value):
-            min_value = x
+    for list_num in data_list:
+        if min_value == 0:
+            min_value = list_num
+        elif list_num < min_value:
+            min_value = list_num
     return min_value
 
-"""
-This function calculates the maximum value of a list.
-Args:
-  data_list: Receives any list.
-Returns:
-  Max value of the list.
-"""
 def max_list(data_list):
+    """
+    This function calculates the maximum value of a list.
+    Args:
+      data_list: Receives any list.
+    Returns:
+      Max value of the list.
+    """
+
     max_value = 0
-    for x in data_list:
-        if(x > max_value):
-            max_value = x
+    for list_num in data_list:
+        if list_num > max_value:
+            max_value = list_num
     return max_value
 
-"""
-This function calculates the mean value of a list.
-Args:
-  data_list: Receives any list.
-Returns:
-  Mean value of the list.
-"""
+
 def mean_list(data_list):
+    """
+    This function calculates the mean value of a list.
+    Args:
+      data_list: Receives any list.
+    Returns:
+      Mean value of the list.
+    """
+
     sum_list = 0
     for num in data_list:
         sum_list += num
     mean_value = round(sum_list/len(data_list))
     return mean_value
 
-"""
-This function calculates the median value of a list.
-Remembering that the list needs to be sorted and of integers.
-Args:
-  data_list: Receives any list.
-Returns:
-  Median value of the list.
-"""
+
 def median_list(data_list):
+    """
+    This function calculates the median value of a list.
+    Remembering that the list needs to be sorted and of integers.
+    Args:
+      data_list: Receives any list.
+    Returns:
+      Median value of the list.
+    """
+
     n = len(data_list)
-    if(n%2 == 1): #odd size = even positions, len(n) = 5 -> [0..4]
+    if n%2 == 1: #odd size = even positions, len(n) = 5 -> [0..4]
         median_value = sorted(data_list)[n//2]
         #print("Length of the list: {} Median's position: {}".format(n, n//2))
     else:
-        median_trip = (sorted(trip_duration_list)[n//2 -1] +
-        sorted(trip_duration_list)[n//2])/2.0
+        median_value = (sorted(trip_duration_list)[n//2 -1] +
+                        sorted(trip_duration_list)[n//2])/2.0
         #print("Length of the list = {} Median's position = {} & {}".format(n, n//2 -1,n//2))
     return median_value
 
@@ -330,13 +344,14 @@ assert round(median_trip) == 670, "TASK 9: median_trip with wrong result!"
 
 input("Press Enter to continue...")
 # TASK 10
-# Gender is easy because usually only have a few options. How about start_stations? How many options does it have?
+# Gender is easy because usually only have a few options. How about
+#start_stations? How many options does it have?
 # TODO: Check types how many start_stations do we have using set()
 #Remember: sets has no duplicates and it's unordered, wich means that there's no position[n]
-user_types = set()
+user_types = set(column_to_list(data_list, 3))
 
-for x in range(len(data_list)):
-    user_types.add(data_list[x][3])
+# for i in enumerate(data_list):
+#     user_types.add(data_list[i][3])
 
 print("\nTASK 10: Printing start stations:")
 print(len(user_types))
@@ -348,7 +363,8 @@ assert len(user_types) == 582, "TASK 10: Wrong len of start stations."
 
 input("Press Enter to continue...")
 # TASK 11
-# Go back and make sure you documented your functions. Explain the input, output and what it do. Example:
+# Go back and make sure you documented your functions. Explain the input, output
+ #and what it do. Example:
 # def new_function(param1: int, param2: str) -> list:
 """
 Example function with annotations.
@@ -367,15 +383,17 @@ input("Press Enter to continue...")
 print("Will you face it?")
 answer = "yes"
 
-"""
-Function that counts user types without hardcoding the types.
-Args:
-  colomn_list: A list of features.
-Returns:
-  List of the types encoutered in the list and another list
-  with how many are them.
-"""
+
 def count_items(column_list):
+    """
+    Function that counts user types without hardcoding the types.
+    Args:
+      colomn_list: A list of features.
+    Returns:
+      List of the types encoutered in the list and another list
+      with how many are them.
+    """
+
     item_types = []
     count_items = []
     for item in column_list:

@@ -89,10 +89,10 @@ input("Press Enter to continue...")
 male = 0
 female = 0
 
-for i, item in enumerate(data_list):
-    if data_list[i][-2] == "Male":
+for row, item in enumerate(data_list):
+    if data_list[row][-2] == "Male":
         male += 1
-    elif data_list[i][-2] == "Female":
+    elif data_list[row][-2] == "Female":
         female += 1
 
 
@@ -124,10 +124,10 @@ def count_gender(data_list):
     male = 0
     female = 0
 
-    for i, item in enumerate(data_list):
-        if data_list[i][-2] == "Male":
+    for row, item in enumerate(data_list):
+        if data_list[row][-2] == "Male":
             male += 1
-        elif data_list[i][-2] == "Female":
+        elif data_list[row][-2] == "Female":
             female += 1
     return [male, female]
 
@@ -210,10 +210,10 @@ def count_user_type(data_list):
     customer = 0
     subscriber = 0
 
-    for i, item in enumerate(data_list):
-        if data_list[i][-3] == "Customer":
+    for row, item in enumerate(data_list):
+        if data_list[row][-3] == "Customer":
             customer += 1
-        elif data_list[i][-3] == "Subscriber":
+        elif data_list[row][-3] == "Subscriber":
             subscriber += 1
     return [customer, subscriber]
 
@@ -251,7 +251,7 @@ input("Press Enter to continue...")
 # TODO: Find the Minimum, Maximum, Mean and Median trip duration.
 # You should not use ready functions to do that, like max() or min().
 trip_duration_list = column_to_list(data_list, 2)
-int_trip_duration_list = [int(x) for x in trip_duration_list]
+int_trip_duration_list = [int(duration_str) for duration_str in trip_duration_list]
 
 min_trip = 0.
 max_trip = 0.
@@ -350,8 +350,8 @@ input("Press Enter to continue...")
 #Remember: sets has no duplicates and it's unordered, wich means that there's no position[n]
 user_types = set(column_to_list(data_list, 3))
 
-# for i in enumerate(data_list):
-#     user_types.add(data_list[i][3])
+# for row in enumerate(data_list):
+#     user_types.add(data_list[row][3])
 
 print("\nTASK 10: Printing start stations:")
 print(len(user_types))

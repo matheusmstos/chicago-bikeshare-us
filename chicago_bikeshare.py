@@ -210,16 +210,16 @@ def count_user_type(data_list):
     customer = 0
     subscriber = 0
 
-    for i in enumerate(data_list):
+    for i, item in enumerate(data_list):
         if data_list[i][-3] == "Customer":
             customer += 1
         elif data_list[i][-3] == "Subscriber":
             subscriber += 1
-        return [customer, subscriber]
-
-print("Result of count_user_type: \n {}".format(count_user_type(data_list)))
+    return [customer, subscriber]
 
 print("\nTASK 7: Check the chart!")
+print("Result of count_user_type:\n{}".format(count_user_type(data_list)))
+
 types = ["Customer", "Subscriber"]
 quantity = count_user_type(data_list)
 y_pos = list(range(len(types)))
